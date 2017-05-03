@@ -1,9 +1,8 @@
 function DnaTranscriber() {
+  this.toRna = function (dnaStrand) {
+    let newStrand = '';
 
-  this.toRna = function toRna(dnaStrand) {
-    var newStrand = '';
-
-    for (var i = 0; i < dnaStrand.length; i++) {
+    for (let i = 0; i < dnaStrand.length; i += 1) {
       if (dnaStrand[i] === 'C') {
         newStrand += 'G';
       } else if (dnaStrand[i] === 'G') {
@@ -21,4 +20,4 @@ function DnaTranscriber() {
   };
 }
 
-module.exports = DnaTranscriber;
+module.exports = DnaTranscriber
