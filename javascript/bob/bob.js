@@ -1,14 +1,22 @@
 function Bob() {
 }
 
-Bob.prototype.hey(sentence) {
-  if (sentence.includes('?')) {
-    return 'Sure.';
-  } else if (sentence.includes('!')) {
+Bob.prototype.hey = function hey(sentence) {
+  const endsInQMark = /\?$/.test(sentence);
+  const hasAllUpper = sentence === sentence.toUpperCase();
+  const hasLetters = /[a-z]/ig.test(sentence);
+  const onlySpaces = /\s+$/g.test(sentence);
+  const emptySentence = sentence.length === 0;
+
+  if (hasAllUpper && hasLetters) {
     return 'Whoa, chill out!';
-  } else if (sentence.length == 0) {
+  } else if (endsInQMark) {
+    return 'Sure.';
+  } else if (onlySpaces || emptySentence) {
     return 'Fine. Be that way!';
-  } else {
-    return 'Whatever.';
   }
-}
+
+  return 'Whatever.';
+};
+
+module.exports = Bob;
