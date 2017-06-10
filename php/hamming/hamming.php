@@ -5,21 +5,20 @@
 // convenience to get you started writing code faster.
 //
 
-function distance($a, $b)
-{
-  $difference = 0;
+function distance($a, $b) {
+  $aSplit = str_split($a);
+  $bSplit = str_split($b);
+  $distance = 0;
 
-  if (strlen($a) != strlen($b)) {
-    throw new InvalidArgumentException("DNA strands must be of equal length.");
-  }
+  if(count($aSplit) != count($bSplit)) {
+    throw new InvalidArgumentException('DNA strands must be of equal length.');
+  };
 
-  for ($i = 0; $i < strlen($a); $i++) {
-    global $difference;
-
-    if ($a{$i} != $b{$i}) {
-      $difference++;
+  for ($i = 0; $i < count($aSplit); $i++) {
+    if($aSplit[$i] != $bSplit[$i]) {
+      $distance++;
     };
-  }
+  };
 
-  echo $difference;
-}
+  return $distance;
+};

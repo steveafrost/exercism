@@ -17,31 +17,26 @@ class HammingComparatorTest extends PHPUnit\Framework\TestCase
 
     public function testCompleteHammingDistanceForSmallStrand()
     {
-        $this->markTestSkipped();
         $this->assertEquals(2, distance('AG', 'CT'));
     }
 
     public function testSmallHammingDistance()
     {
-        $this->markTestSkipped();
         $this->assertEquals(1, distance('AT', 'CT'));
     }
 
     public function testSmallHammingDistanceInLongerStrand()
     {
-        $this->markTestSkipped();
         $this->assertEquals(1, distance('GGACG', 'GGTCG'));
     }
 
     public function testLargeHammingDistance()
     {
-        $this->markTestSkipped();
         $this->assertEquals(4, distance('GATACA', 'GCATAA'));
     }
 
     public function testHammingDistanceInVeryLongStrand()
     {
-        $this->markTestSkipped();
         $this->assertEquals(9, distance('GGACGGATTCTG', 'AGGACGGATTCT'));
     }
 
